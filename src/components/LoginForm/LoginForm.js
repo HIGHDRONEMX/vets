@@ -1,73 +1,83 @@
 import React, {Component} from "react";
+import {Link} from "react-router-dom";
 
 export class LoginForm extends Component {
+  login() {
+    console.log("hola desde login form");
+  }
   render() {
-    return <div></div>;
+    return (
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-4"></div>
+          <div className="col-lg-4">
+            <div className="card">
+              <article className="card-body">
+                {/* <a href="" className="float-right btn btn-outline-primary">
+                  Iniciar Sesi&oacute;n
+                </a> */}
+                <h4 className="card-title mb-4 mt-1">Iniciar Sesi&oacute;n</h4>
+                <p>
+                  <Link to="#" className="btn btn-block btn-outline-info">
+                    <i className="fab fa-twitter"></i> Logu&eacute;ate con
+                    Twitter
+                  </Link>
+                  <Link to="#" className="btn btn-block btn-outline-info">
+                    <i className="fab fa-facebook-f"></i> Logu&eacute;ate con
+                    Facebook
+                  </Link>
+                </p>
+                <hr />
+                <form>
+                  <div className="form-group">
+                    <input
+                      name=""
+                      className="form-control"
+                      placeholder="Email o usuario"
+                      type="email"
+                      id="userEmailLog"
+                    />
+                  </div>
+                  {/* <!-- form-group// --> */}
+                  <div className="form-group">
+                    <input
+                      className="form-control"
+                      placeholder="Su contraseña"
+                      type="password"
+                      id="userPassLog"
+                    />
+                  </div>
+                  {/* <!-- form-group// --> */}
+                  <div className="row">
+                    <div className="col-md-6">
+                      <div className="form-group">
+                        <button
+                          type="submit"
+                          onClick={this.login()}
+                          className="btn btn-primary btn-block"
+                        >
+                          Iniciar Sesi&oacute;n
+                        </button>
+                      </div>
+                      {/* <!-- form-group// --> */}
+                    </div>
+                    <div className="col-md-6 text-right">
+                      <Link className="small" to="#">
+                        ¿Olvidaste tu contraseña?
+                      </Link>
+                    </div>
+                  </div>
+                  {/* <!-- .row// --> */}
+                </form>
+              </article>
+            </div>
+            {/* <!-- card.// --> */}
+          </div>
+          <div className="col-lg-4"></div>
+        </div>
+      </div>
+    );
   }
 }
 
 export default LoginForm;
-
-<div class="container">
-      <div class="row">
-        <div class="col-lg-4"></div>
-        <div class="col-lg-4">
-          <div class="card">
-            <article class="card-body">
-              <a href="" class="float-right btn btn-outline-primary">Sign up</a>
-              <h4 class="card-title mb-4 mt-1">Sign in</h4>
-              <p>
-                <a href="" class="btn btn-block btn-outline-info">
-                  <i class="fab fa-twitter"></i> Login via Twitter</a
-                >
-                <a href="" class="btn btn-block btn-outline-primary">
-                  <i class="fab fa-facebook-f"></i> Login via facebook</a
-                >
-              </p>
-              <hr />
-              <form>
-                <div class="form-group">
-                  <input
-                    name=""
-                    class="form-control"
-                    placeholder="Email or login"
-                    type="email"
-                    id="userEmailLog"
-                  />
-                </div>
-                <!-- form-group// -->
-                <div class="form-group">
-                  <input
-                    class="form-control"
-                    placeholder="******"
-                    type="password"
-                    id="userPassLog"
-                  />
-                </div>
-                <!-- form-group// -->
-                <div class="row">
-                  <div class="col-md-6">
-                    <div class="form-group">
-                      <button
-                        type="submit"
-                        onclick="login()"
-                        class="btn btn-primary btn-block"
-                      >
-                        Login
-                      </button>
-                    </div>
-                    <!-- form-group// -->
-                  </div>
-                  <div class="col-md-6 text-right">
-                    <a class="small" href="#">Forgot password?</a>
-                  </div>
-                </div>
-                <!-- .row// -->
-              </form>
-            </article>
-          </div>
-          <!-- card.// -->
-        </div>
-        <div class="col-lg-4"></div>
-      </div>
-    </div>

@@ -1,57 +1,41 @@
 import React, {Component} from "react";
-import $ from "jquery";
 import "./Navbar.css";
 import {Link} from "react-router-dom";
 import mexFlag from "../../assets/img/mexFlagIco32PX.png";
+// import ServicesSec from "../servicesSec/ServicesSec";
 
 export class Navbar extends Component {
-  componentDidMount() {
-    // const navbar = document.getElementById("mainNav");
-    // window.onscroll = function() {
-    //   "use strict";
-    //   if (document.body.scrollTop >= 200) {
-    //     myNav.classList.add("navbar-scrolled");
-    //     myNav.classList.remove("nav-colored");
-    //   } else {
-    //     myNav.classList.remove("nav-scrolled");
-    //     myNav.classList.add("nav-colored");
-    //   }
-    // };
+  state = {
+    navbarBG: ""
+  };
 
-    // Closes responsive menu when a scroll trigger link is clicked
-    $(".js-scroll-trigger").click(function() {
-      $(".navbar-collapse").collapse("hide");
-    });
-
-    // Activate scrollspy to add active class to navbar items on scroll
-    $("body").scrollspy({
-      target: "#mainNav",
-      offset: 75
-    });
-
-    // Collapse Navbar
-    var navbarCollapse = function() {
-      if ($("#mainNav").offset().top > 100) {
-        $("#mainNav").addClass("navbar-scrolled");
+  changeNavBG = () => {
+    window.onscroll = function() {
+      if (window.scrollY > 50) {
+        this.setState({
+          navbarBG: "navbar-scrolled"
+        });
+        console.log(document.body.scrollTop);
       } else {
-        $("#mainNav").removeClass("navbar-scrolled");
+        this.setState({
+          navbarBG: ""
+        });
       }
-    };
-    // Collapse now if page is not at top
-    navbarCollapse();
-    // Collapse the navbar when page is scrolled
-    $(window).scroll(navbarCollapse);
-  }
+    }.bind(this);
+  };
+
+  componentDidMount() {}
 
   render() {
     return (
       <div>
+        {this.changeNavBG()}
         <nav
-          className="navbar navbar-expand-lg navbar-light fixed-top py-3"
+          className={`navbar navbar-expand-lg navbar-light fixed-top py-3 ${this.state.navbarBG}`}
           id="mainNav"
         >
           <div className="container">
-            <Link to="#page-top" className="navbar-brand js-scroll-trigger">
+            <Link to="/page-top" className="navbar-brand js-scroll-trigger">
               <img src={mexFlag} alt="mexFlagIco" />
               HIGH DRONE MX
             </Link>
@@ -75,7 +59,11 @@ export class Navbar extends Component {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="#services" className="nav-link js-scroll-trigger">
+                  <Link
+                    to="/services"
+                    className="nav-link js-scroll-trigger"
+                    // component={ServicesSec}
+                  >
                     Servicios
                   </Link>
                 </li>
@@ -85,7 +73,7 @@ export class Navbar extends Component {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link top="Team" className="nav-link js-scroll-trigger">
+                  <Link to="Team" className="nav-link js-scroll-trigger">
                     Nuestro Equipo
                   </Link>
                 </li>
@@ -95,7 +83,7 @@ export class Navbar extends Component {
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link className="nav-link js-scroll-trigger" href="">
+                  <Link to="#" className="nav-link js-scroll-trigger" href="">
                     Iniciar Sesi&oacute;n
                   </Link>
                 </li>
