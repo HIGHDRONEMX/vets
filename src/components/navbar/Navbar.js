@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import $ from "jquery";
 import "./Navbar.css";
+import {Link} from "react-router-dom";
 import mexFlag from "../../assets/img/mexFlagIco32PX.png";
 
 export class Navbar extends Component {
@@ -50,10 +51,10 @@ export class Navbar extends Component {
           id="mainNav"
         >
           <div className="container">
-            <a className="navbar-brand js-scroll-trigger" href="#page-top">
+            <Link to="#page-top" className="navbar-brand js-scroll-trigger">
               <img src={mexFlag} alt="mexFlagIco" />
               HIGH DRONE MX
-            </a>
+            </Link>
             <button
               className="navbar-toggler navbar-toggler-right"
               type="button"
@@ -69,29 +70,34 @@ export class Navbar extends Component {
             <div className="collapse navbar-collapse" id="navbarResponsive">
               <ul className="navbar-nav ml-auto my-2 my-lg-0">
                 <li className="nav-item">
-                  <a className="nav-link js-scroll-trigger" href="#about">
+                  <Link to="#about" className="nav-link js-scroll-trigger">
                     Acerca de nosotros
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link js-scroll-trigger" href="#services">
+                  <Link to="#services" className="nav-link js-scroll-trigger">
                     Servicios
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link js-scroll-trigger" href="#portfolio">
+                  <Link to="#portfolio" className="nav-link js-scroll-trigger">
                     Nuestros Proyectos
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link js-scroll-trigger" href="#Team">
+                  <Link top="Team" className="nav-link js-scroll-trigger">
                     Nuestro Equipo
-                  </a>
+                  </Link>
                 </li>
                 <li className="nav-item">
-                  <a className="nav-link js-scroll-trigger" href="#contact">
+                  <Link to="/contact" className="nav-link js-scroll-trigger">
                     Contactanos
-                  </a>
+                  </Link>
+                </li>
+                <li className="nav-item">
+                  <Link className="nav-link js-scroll-trigger" href="">
+                    Iniciar Sesi&oacute;n
+                  </Link>
                 </li>
               </ul>
             </div>

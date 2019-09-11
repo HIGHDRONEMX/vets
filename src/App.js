@@ -6,19 +6,24 @@ import React from "react";
 import "./creative.css";
 // import logo from "./logo.svg";
 // import "./App.css";
+import {BrowserRouter, Router, Switch, Redirect} from "react-router-dom";
 import Navbar from "./components/navbar/Navbar";
 import MastHead from "./components/mastHead/MastHead";
 import AboutUs from "./components/aboutUs/AboutUs";
 import ServicesSec from "./components/servicesSec/ServicesSec";
+import LoginForm from "./components/LoginForm/LoginForm";
 
 function App() {
   return (
-    <div>
-      <Navbar />
-      <MastHead />
-      <AboutUs />
-      <ServicesSec />
-    </div>
+    <BrowserRouter>
+      <div class="container">
+        <Navbar />
+        <MastHead />
+        <AboutUs />
+        <ServicesSec />
+        <LoginForm />
+      </div>
+    </BrowserRouter>
   );
 }
 
