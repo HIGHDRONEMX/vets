@@ -5,7 +5,7 @@ export class MastHead extends Component {
   render() {
     return (
       <div>
-        <header className="masthead">
+        <header className="masthead" id="mastHead">
           <div className="container h-100">
             <div className="row h-100 align-items-center justify-content-center text-center">
               <div className="col-lg-10 align-self-end">

@@ -1,8 +1,10 @@
 import React, {Component} from "react";
 import "./Navbar.css";
-import {Link} from "react-router-dom";
+import {BrowserRouter /* Router, Switch, Redirect */} from "react-router-dom";
+import {NavHashLink as Link} from "react-router-hash-link";
 import mexFlag from "../../assets/img/mexFlagIco32PX.png";
-// import ServicesSec from "../servicesSec/ServicesSec";
+import * as ROUTES from "../../constants/Routes/Routes";
+import LoginForm from "../LoginForm/LoginForm";
 
 export class Navbar extends Component {
   state = {
@@ -24,18 +26,21 @@ export class Navbar extends Component {
     }.bind(this);
   };
 
-  componentDidMount() {}
-
   render() {
     return (
-      <div>
+      <BrowserRouter>
         {this.changeNavBG()}
         <nav
           className={`navbar navbar-expand-lg navbar-light fixed-top py-3 ${this.state.navbarBG}`}
           id="mainNav"
         >
           <div className="container">
-            <Link to="/page-top" className="navbar-brand js-scroll-trigger">
+            <Link
+              smooth
+              to={ROUTES.LANDING}
+              className="navbar-brand js-scroll-trigger"
+              name="landing"
+            >
               <img src={mexFlag} alt="mexFlagIco" />
               HIGH DRONE MX
             </Link>
@@ -54,36 +59,60 @@ export class Navbar extends Component {
             <div className="collapse navbar-collapse" id="navbarResponsive">
               <ul className="navbar-nav ml-auto my-2 my-lg-0">
                 <li className="nav-item">
-                  <Link to="#about" className="nav-link js-scroll-trigger">
+                  <Link
+                    smooth
+                    to={ROUTES.ABOUTUS}
+                    className="nav-link js-scroll-trigger"
+                    name="aboutus"
+                  >
                     Acerca de nosotros
                   </Link>
                 </li>
                 <li className="nav-item">
                   <Link
-                    to="/services"
+                    smooth
+                    to={ROUTES.SERVICES}
                     className="nav-link js-scroll-trigger"
-                    // component={ServicesSec}
+                    name="services"
                   >
                     Servicios
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="#portfolio" className="nav-link js-scroll-trigger">
+                  <Link
+                    smooth
+                    to={ROUTES.SERVICES}
+                    className="nav-link js-scroll-trigger"
+                  >
                     Nuestros Proyectos
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="Team" className="nav-link js-scroll-trigger">
+                  <Link
+                    smooth
+                    to={ROUTES.SERVICES}
+                    className="nav-link js-scroll-trigger"
+                  >
                     Nuestro Equipo
                   </Link>
                 </li>
                 <li className="nav-item">
-                  <Link to="/contact" className="nav-link js-scroll-trigger">
+                  <Link
+                    smooth
+                    to={ROUTES.SERVICES}
+                    className="nav-link js-scroll-trigger"
+                  >
                     Contactanos
                   </Link>
                 </li>
+
                 <li className="nav-item">
-                  <Link to="#" className="nav-link js-scroll-trigger" href="">
+                  <Link
+                    smooth
+                    to={ROUTES.SIGN_IN}
+                    className="nav-link js-scroll-trigger"
+                    component={LoginForm}
+                  >
                     Iniciar Sesi&oacute;n
                   </Link>
                 </li>
@@ -91,7 +120,7 @@ export class Navbar extends Component {
             </div>
           </div>
         </nav>
-      </div>
+      </BrowserRouter>
     );
   }
 }

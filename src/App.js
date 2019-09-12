@@ -3,25 +3,15 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import React from "react";
 import "./creative.css";
-// import logo from "./logo.svg";
-// import "./App.css";
-import {BrowserRouter /* Router, Switch, Redirect */} from "react-router-dom";
-import Navbar from "./components/navbar/Navbar";
-import MastHead from "./components/mastHead/MastHead";
-import AboutUs from "./components/aboutUs/AboutUs";
-import ServicesSec from "./components/servicesSec/ServicesSec";
+import {BrowserRouter} from "react-router-dom";
 import LoginForm from "./components/LoginForm/LoginForm";
+import Router from "./constants/Routes/Routes";
 
 function App() {
   return (
     <BrowserRouter>
-      <div>
-        <Navbar />
-        <MastHead />
-        <AboutUs />
-        <ServicesSec />
-        <LoginForm />
-      </div>
+      <Router />
+      <LoginForm />
     </BrowserRouter>
   );
 }

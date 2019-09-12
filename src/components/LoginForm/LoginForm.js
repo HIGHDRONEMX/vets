@@ -1,21 +1,41 @@
+//crear api que tenga usuario, correo, contraseña (encriptada),
 import React, {Component} from "react";
 import {Link} from "react-router-dom";
+import axios from "axios";
 
 export class LoginForm extends Component {
-  login() {
-    console.log("hola desde login form");
+  constructor(props) {
+    super(props);
+    this.state = {
+      userMail: "",
+      userPwd: ""
+    };
   }
+
+  login() {
+    axios
+      .get("")
+      .then()
+      .catch(err => console.log(`¡Error!: ${err} `));
+  }
+
+  onInputCheck = e => {
+    let name = e.target.name;
+    let value = e.target.value;
+
+    this.setState({
+      [name]: value
+    });
+    console.log(this.state);
+  };
+
   render() {
     return (
-      <div className="container">
+      <div className="container" id="signin">
         <div className="row">
-          <div className="col-lg-4"></div>
-          <div className="col-lg-4">
+          <div className="col-lg-12 d-flex justify-content-around">
             <div className="card">
               <article className="card-body">
-                {/* <a href="" className="float-right btn btn-outline-primary">
-                  Iniciar Sesi&oacute;n
-                </a> */}
                 <h4 className="card-title mb-4 mt-1">Iniciar Sesi&oacute;n</h4>
                 <p>
                   <Link to="#" className="btn btn-block btn-outline-info">
@@ -28,19 +48,28 @@ export class LoginForm extends Component {
                   </Link>
                 </p>
                 <hr />
-                <form>
+                <form onSubmit={this.onFormSubmit}>
                   <div className="form-group">
+                    <label htmlFor="userEmailLog">
+                      Usuario &oacute; correo:
+                    </label>
                     <input
-                      name=""
+                      name="userMail"
+                      value={this.state.userMail}
+                      onChange={this.onInputCheck}
                       className="form-control"
-                      placeholder="Email o usuario"
+                      placeholder="Usuario &oacute; correo"
                       type="email"
                       id="userEmailLog"
                     />
                   </div>
                   {/* <!-- form-group// --> */}
                   <div className="form-group">
+                    <label htmlFor="userPassLog">Contraseña:</label>
                     <input
+                      name="userPwd"
+                      value={this.state.userPwd}
+                      onChange={this.onInputCheck}
                       className="form-control"
                       placeholder="Su contraseña"
                       type="password"
@@ -53,7 +82,6 @@ export class LoginForm extends Component {
                       <div className="form-group">
                         <button
                           type="submit"
-                          onClick={this.login()}
                           className="btn btn-primary btn-block"
                         >
                           Iniciar Sesi&oacute;n
@@ -69,11 +97,25 @@ export class LoginForm extends Component {
                   </div>
                   {/* <!-- .row// --> */}
                 </form>
+                <div className="row">
+                  <div className="col-lg-12">
+                    <label htmlFor="registerBtn">
+                      ¿No tienes una cuenta? ¡Cr&eacute;ate una!
+                    </label>
+                    <p>
+                      <Link
+                        className="btn btn-outline-primary btn-block"
+                        id="registerBtn"
+                      >
+                        Registrarse
+                      </Link>
+                    </p>
+                  </div>
+                </div>
               </article>
             </div>
             {/* <!-- card.// --> */}
           </div>
-          <div className="col-lg-4"></div>
         </div>
       </div>
     );

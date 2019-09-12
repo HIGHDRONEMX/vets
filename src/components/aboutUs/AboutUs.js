@@ -4,7 +4,7 @@ export class AboutUs extends Component {
   render() {
     return (
       <div>
-        <section className="page-section bg-primary" id="about">
+        <section className="page-section bg-primary" id="aboutus">
           <div className="container">
             <div className="row justify-content-center">
               <div className="col-lg-8 text-center">
