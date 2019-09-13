@@ -12,12 +12,27 @@ export class LoginForm extends Component {
     };
   }
 
-  login() {
-    axios
-      .get("")
-      .then()
-      .catch(err => console.log(`¡Error!: ${err} `));
-  }
+  onFormSubmit = e => {
+    e.preventDefault();
+    if (this.state.userMail !== "" && this.state.userPwd !== "") {
+      console.log(this.state.userMail);
+      console.log(this.state.userPwd);
+      axios
+        .get(
+          `https://protected-spire-77051.herokuapp.com/user/${this.state.userMail}`,
+          this.state
+        )
+        .then(res => {
+          if (this.state.userPwd === res.data.userPwd) {
+            console.log("Estas adentro!");
+          } else {
+            console.log("Estas fuera!");
+          }
+        })
+        .catch(err => console.log(err));
+    } else {
+    }
+  };
 
   onInputCheck = e => {
     let name = e.target.name;
@@ -59,7 +74,7 @@ export class LoginForm extends Component {
                       onChange={this.onInputCheck}
                       className="form-control"
                       placeholder="Usuario &oacute; correo"
-                      type="email"
+                      type="text"
                       id="userEmailLog"
                     />
                   </div>
